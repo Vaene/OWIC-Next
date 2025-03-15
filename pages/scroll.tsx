@@ -165,7 +165,7 @@ export default function Scroll() {
         <h3>One World In Concert <sup>TM</sup></h3>
         <div className="video-wrapper">
           <video controls autoPlay loop width="1280" height="720">
-            <source src="/videos/WebCompilationShort_5.mp4" type="video/mp4" />
+            <source src="https://d33tthlg03lm1i.cloudfront.net/streamingVideos/WebCompilationShort_5.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

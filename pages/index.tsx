@@ -1,20 +1,21 @@
 import { useRef } from 'react';
-import { gsap } from 'gsap/dist/gsap';
+import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 import { useIsomorphicLayoutEffect } from '../helpers/isomorphicEffect';
 
 export default function Boxes() {
   const container = useRef(null),
-        tl = useRef(null);
- 
+        tl = useRef(gsap.timeline()); //initialize with default timeline.
+
   const toggleTimeline = () => {
     tl.current.reversed(!tl.current.reversed());
   };
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context((self) => {
-      const boxes = self.selector('.box');
+      const boxes = self.selector?.('.box') ?? [];
+      tl.current.clear(); //clear the default timeline.
       tl.current = gsap
         .timeline()
         .to(boxes[0], { x: 120, rotation: 360 })

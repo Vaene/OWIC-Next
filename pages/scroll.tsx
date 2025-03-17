@@ -13,7 +13,7 @@ export default function Scroll() {
   useGSAP(() => {
     if (typeof window !== 'undefined') {
       const ctx = gsap.context((self) => {
-        const boxes = self.selector('.box');
+        const boxes = self.selector?.('.box') ?? [];
         boxes.forEach((box) => {
           gsap.to(box, {
             x: 300,
@@ -126,25 +126,29 @@ export default function Scroll() {
         });
 
         // Navigation links
-        let links = gsap.utils.toArray("nav a");
-        links.forEach(a => {
-          let element = document.querySelector(a.getAttribute("href"));
-          let linkST = ScrollTrigger.create({
-            trigger: element,
-            start: "top top"
-          });
+        let links = gsap.utils.toArray("nav a") as HTMLAnchorElement[];
+        
+        links.forEach((ankor: HTMLAnchorElement) => {
+          const href = ankor.getAttribute("href");
+          if (href) { // Check if href is not null
+            let element = document.querySelector(href);
+            let linkST = ScrollTrigger.create({
+              trigger: element,
+              start: "top top"
+            });
 
-          ScrollTrigger.create({
-            trigger: element,
-            start: "top center",
-            end: "bottom center",
-            onToggle: self => self.isActive && setActive(a)
-          });
+            ScrollTrigger.create({
+              trigger: element,
+              start: "top center",
+              end: "bottom center",
+              onToggle: self => self.isActive && setActive(ankor)
+            });
 
-          a.addEventListener("click", e => {
-            e.preventDefault();
-            gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
-          });
+            ankor.addEventListener("click", e => {
+              e.preventDefault();
+              gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
+            });
+          }
         });
 
         function setActive(link) {

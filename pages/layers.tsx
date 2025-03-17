@@ -4,15 +4,15 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
 import { useIsomorphicLayoutEffect } from '../helpers/isomorphicEffect';
-import TransitionContext from '../context/TransitionContext';
+import TransitionContext, { useTransitionContext } from '../context/TransitionContext'; // Import useTransitionContext
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Layers() {
   const main = useRef(null);
-  const scrollTween = useRef(null);
+  const scrollTween = useRef<gsap.core.Tween | null>(null); // Explicitly type scrollTween
   const [ctx] = useState(gsap.context(() => {}, main));
-  const { completed } = useContext(TransitionContext);
+  const { completed } = useTransitionContext(); // Use useTransitionContext
 
   const goToSection = (i) => {
     // Remove the GSAP instance with the specific ID
@@ -36,8 +36,8 @@ export default function Layers() {
   useIsomorphicLayoutEffect(() => {
     if (!completed) return;
     ctx.add(() => {
-      const panels = gsap.utils.toArray('.panel');
-      panels.forEach((panel, i) => {
+      const panels = gsap.utils.toArray('.panel') as HTMLElement[]; // Explicitly type panels
+      panels.forEach((panel: HTMLElement, i) => { // Explicitly type panel
         ScrollTrigger.create({
           trigger: panel,
           start: 'top bottom',

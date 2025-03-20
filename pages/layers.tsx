@@ -34,23 +34,33 @@ export default function Layers() {
   useIsomorphicLayoutEffect(() => {
     ctx.add(() => {
       const panels = gsap.utils.toArray('.panel') as HTMLElement[]; // Explicitly type panels
-      panels.forEach((panel: HTMLElement, i) => {
-        // Explicitly type panel
+      panels.forEach((panel: HTMLElement, i: number) => {
+        // Set the height of each panel to at least the viewport height
+        gsap.set(panel, { height: window.innerHeight });
+  
+        // Adjust the start and end values for all panels
+        const start = i === 0 ? 'top top' : 'top top'; // All panels start at the top of the viewport
+        const end = i === 0 ? 'bottom top' : 'bottom top'; // All panels end at the top of the next section
+  
         ScrollTrigger.create({
           trigger: panel,
-          start: 'top bottom',
-          end: '+=200%',
+          start: start, // Panel starts sticking when its top reaches the top of the viewport
+          end: end, // Panel stops sticking when its bottom reaches the top of the viewport
           onToggle: (self) =>
             self.isActive && !scrollTween.current && goToSection(i),
+          pin: true, // Pin the panel while it's active
+          pinSpacing: true, // Add spacing to allow smooth scrolling
         });
       });
+  
+      // Add snap functionality
       ScrollTrigger.create({
         start: 0,
         end: 'max',
         snap: 1 / (panels.length - 1),
       });
     });
-
+  
     return () => ctx.revert();
   }, []); // No dependency on `completed`
 

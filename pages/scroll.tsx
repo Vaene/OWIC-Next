@@ -178,47 +178,33 @@ export default function Scroll() {
 
       <section id="what" className="panel redd">
         <span className="line line-1"></span>
-        <h2>What We Are Doing</h2>
+        <h2>The Concert</h2>
         <h3>A Concert For Sound Healing</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </section>
 
-      <section id="where" className="panel orangee">
+      <section id="how" className="panel orangee">
         <span className="line line-2"></span>
-        <h2>Where</h2>
-        <h3>NYC</h3>
+        <h2>How To Help</h2>
+        <h3>Get Involved!</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </section>
 
-      <section id="when" className="panel purple simple">
+      <section id="videos" className="panel purple simple">
         <span className="line line-3"></span>
-        <h2>When</h2>
-        <h3>Spring 2026.</h3>
+        <h2>Videos</h2>
+        <h3>Videos by Category</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </section>
 
-      <section id="why" className="panel bluee">
+      <section id="about" className="panel bluee">
         <span className="line line-4"></span>
-        <h2>Why</h2>
-        <h3>The World needs to be healed.</h3>
+        <h2>About Us / Contact</h2>
+        <h3>Contact Us</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </section>
 
-      <section id="whynow" className="panel white">
-        <span className="line line-5"></span>
-        <h2>Why Now</h2>
-        <h3>Because its never been more needed.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      </section>
 
-      <nav id="owic-nav">
-        <div><a href="#who">Who?</a></div>
-        <div><a href="#what">What?</a></div>
-        <div><a href="#where">Where?</a></div>
-        <div><a href="#when">When</a></div>
-        <div><a href="#why">Why</a></div>
-        <div><a href="#whynow">Why Now</a></div>
-      </nav>
     </div>
   );
 }

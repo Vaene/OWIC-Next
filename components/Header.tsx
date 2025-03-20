@@ -127,15 +127,22 @@ export default function Header() {
       <nav className="pages">
         <ul>
           <li>
-            <Link href="/scroll">Who We Are</Link>
+            <Link href="#who">Who We Are</Link>
           </li>
           <li>
-            <Link href="/boxes">The Concert</Link>
+            <Link href="#what">The Concert</Link>
           </li>
           <li>
-            <Link href="/layers">Videos</Link>
+            <Link href="#how">How To Help</Link>
+          </li>
+          <li>
+            <Link href="#videos">Videos</Link>
+          </li>
+          <li>
+            <Link href="#about">About Us / Contact</Link>
           </li>
         </ul>
+        
       </nav>
     </header>
   );
